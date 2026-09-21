@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://do4pbq4kjpgkp"]
+
+[ext_resource type="PackedScene" uid="uid://dygddi6vpgacj" path="res://scenes/Player.tscn" id="1_errlg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bl13t"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_iyx0m"]
+sky_material = SubResource("ProceduralSkyMaterial_bl13t")
+
+[sub_resource type="Environment" id="Environment_74lek"]
+background_mode = 2
+sky = SubResource("Sky_iyx0m")
+glow_enabled = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_errlg"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ij1v8"]
+albedo_color = Color(0.9266111, 0.88121784, 0.7351652, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_inioi"]
+material = SubResource("StandardMaterial3D_ij1v8")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_inioi"]
+
+[node name="Test" type="Node3D" unique_id=2124578073]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1088003116]
+environment = SubResource("Environment_74lek")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1347532458]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1714198095]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=820342492]
+shape = SubResource("ConcavePolygonShape3D_errlg")
+
+[node name="FloorGraphics" type="MeshInstance3D" parent="Floor" unique_id=1356104791]
+mesh = SubResource("PlaneMesh_inioi")
+
+[node name="Player" parent="." unique_id=1030306642 instance=ExtResource("1_errlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=632009054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.9540184)
+mesh = SubResource("BoxMesh_inioi")
