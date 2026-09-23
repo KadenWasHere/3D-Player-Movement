@@ -25,6 +25,7 @@ material = SubResource("StandardMaterial3D_ij1v8")
 size = Vector2(100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_inioi"]
+size = Vector3(4.033203, 1.7357788, 1.8829346)
 
 [node name="Test" type="Node3D" unique_id=2124578073]
 
@@ -41,11 +42,16 @@ shadow_enabled = true
 shape = SubResource("ConcavePolygonShape3D_errlg")
 
 [node name="FloorGraphics" type="MeshInstance3D" parent="Floor" unique_id=1356104791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00026607513, 0.010725021, -0.0016579628)
 mesh = SubResource("PlaneMesh_inioi")
 
 [node name="Player" parent="." unique_id=1030306642 instance=ExtResource("1_errlg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=632009054]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.9540184)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8784747, 0.47460938, -2.512551)
+mesh = SubResource("BoxMesh_inioi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2071088373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6328483, 0.8678894, -5.120756)
 mesh = SubResource("BoxMesh_inioi")

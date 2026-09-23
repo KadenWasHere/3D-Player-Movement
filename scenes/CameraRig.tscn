@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://be7ywffslh5f2"]
+
+[ext_resource type="Script" uid="uid://dmcxiq70fn8yr" path="res://scenes/cameraRig.gd" id="1_7xkah"]
+
+[node name="CameraRig" type="Camera3D" unique_id=1648100818]
+script = ExtResource("1_7xkah")
